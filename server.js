@@ -5,6 +5,9 @@ var express = require('express'),
     
 var app = express();
 
+app.use('/public', express.static(process.cwd() + '/public'));
+app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
+
 routes(app);
 
 app.listen(8080, function () {
