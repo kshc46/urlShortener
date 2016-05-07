@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express'),
-    mongo = require('mongodb').MongoClient,
+    mongo = require('mongodb'),
     routes = require('./app/routes/index.js'),
     shortener = require('./app/controllers/shortener.js');
     
@@ -10,7 +10,7 @@ require('dotenv').config({
 });    
 var app = express();
 
-mongo.connect(process.env.MONGOLAB_URI || 'mongodb://'+process.env.IP+':27017/shortenURL', function (err, db) {
+mongo.MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://'+process.env.IP+':27017/shortenURL', function (err, db) {
 
     if (err) {
         throw new Error('Database failed to connect!');
