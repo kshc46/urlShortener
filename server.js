@@ -20,7 +20,8 @@ mongo.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/shortenURL'
     
     routes(app, db);
     shortener(app, db);
-    
+
+    var port = process.env.PORT || 8080;
     app.listen(8080, function () {
         console.log('Listening on port 8080...');
     });
