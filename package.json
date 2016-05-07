@@ -10,6 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.13.4",
-    "mongodb": "latest"
+    "mongodb": "^2.1.18"
   }
 }
