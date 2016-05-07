@@ -2,7 +2,8 @@
 
 var express = require('express'),
     mongo = require('mongodb').MongoClient,
-    routes = require('./app/routes/index.js');
+    routes = require('./app/routes/index.js'),
+    shortener = require('./app/controllers/shortener.js');
     
 var app = express();
 
@@ -18,6 +19,7 @@ mongo.connect('mongodb://'+process.env.IP+':27017/shortenURL', function (err, db
     app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
     
     routes(app, db);
+    shortener(app, db);
     
     app.listen(8080, function () {
         console.log('Listening on port 8080...');
