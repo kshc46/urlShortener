@@ -5,6 +5,9 @@ var express = require('express'),
     routes = require('./app/routes/index.js'),
     shortener = require('./app/controllers/shortener.js');
     
+require('dotenv').config({
+  silent: true
+});    
 var app = express();
 
 mongo.connect(process.env.MONGOLAB_URI || 'mongodb://'+process.env.IP+':27017/shortenURL', function (err, db) {
