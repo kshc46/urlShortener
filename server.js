@@ -18,6 +18,12 @@ mongo.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/shortenURL'
     app.use('/public', express.static(process.cwd() + '/public'));
     app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
     
+    db.createCollection("urls", {
+        capped: true,
+        size: 5242880,
+        max: 5000
+    });
+    
     routes(app, db);
     shortener(app, db);
 
