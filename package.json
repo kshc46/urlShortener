@@ -11,6 +11,6 @@
   "dependencies": {
     "express": "^4.13.4",
     "mongoskin": "^2.1.0",
-    "mongodb":"^2.6.12"
+    "mongodb":"^latest"
   }
 }
