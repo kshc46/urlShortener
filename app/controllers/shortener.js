@@ -17,7 +17,7 @@ function shortener(app, db){
             }
             console.log(result);
             if(result.length === 0){
-                res.send('This doesn\'t exist!');
+                res.send("This doesn't exist!");
             } else {
                 res.redirect(result[0].url);
             }
